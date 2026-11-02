@@ -1,0 +1,24 @@
+{
+  "_note": "LIST prices in US$ per million tokens, as published. They are inputs, not measurements: edit them when the provider changes its price list. The usage logger and the bench both read this one file, so a cost column is only as current as these numbers. It is a list-price estimate, not your invoice.",
+  "updated": "2026-11-02",
+  "unit": "usd_per_million_tokens",
+  "models": {
+    "opus": { "input": 4, "output": 20 },
+    "sonnet": { "input": 2, "output": 10 },
+    "haiku": {
+      "input": 0.10,
+      "output": 0.50,
+      "long_context_threshold_tokens": 100000,
+      "long_input": 0.50,
+      "long_output": 2.50
+    },
+    "fable": { "input": 10, "output": 50 }
+  },
+  "cache": {
+    "_note": "Multipliers on the input price that applies to the request: a cache read costs 0.1x, a 5-minute cache write 1.25x, a 1-hour cache write 2x.",
+    "read_multiplier": 0.1,
+    "write_5m_multiplier": 1.25,
+    "write_1h_multiplier": 2
+  },
+  "long_context_rule": "For a model with long_context_threshold_tokens, a request whose context (input + cache_creation + cache_read tokens) is above the threshold is billed entirely at long_input / long_output (cache multipliers apply to long_input)."
+}

@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/log_usage.py\" --hook || python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/log_usage.py\" --hook || true"
+          }
+        ]
+      }
+    ]
+  }
+}

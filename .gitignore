@@ -1,0 +1,4 @@
+__pycache__/
+bench-results/
+agent_tiers.csv
+*.lock
